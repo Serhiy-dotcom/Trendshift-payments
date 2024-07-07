@@ -5,7 +5,8 @@
   "description": "",
   "main": "bot.js",
   "scripts": {
-    "start": "node bot.js"
+    "start": "node bot.js",
+	"build": "echo 'Nothing to build'"
   },
   "keywords": [],
   "author": "",
