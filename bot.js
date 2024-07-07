@@ -381,3 +381,7 @@ bot.on('callback_query', async (callbackQuery) => {
 
 // Start the bot
 log('Bot is running...');
+
+export default (req, res) => {
+	res.status(200).send('Bot is running');
+};
