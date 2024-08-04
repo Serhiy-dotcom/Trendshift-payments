@@ -4,6 +4,7 @@ import mongoose from 'mongoose';
 import dayjs from 'dayjs';
 import cron from 'node-cron';
 import fs from 'fs';
+import express from 'express';
 import Payment from './models/payment.js';
 import {
 	productDescription,
@@ -12,6 +13,17 @@ import {
 	cryptoPaymentInfo,
 	cardPaymentInfo
 } from './consts.js';
+
+const app = express();
+
+app.get('/', (req, res) => {
+	res.send('Hello wordl');
+});
+
+const port = 3000;
+app.listen(port, () => {
+	log(`Server is running at http://localhost:${port}`);
+});
 
 dotenv.config();
 

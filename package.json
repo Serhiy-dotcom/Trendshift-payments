@@ -3,10 +3,10 @@
   "name": "trend-shift-payment-app",
   "version": "1.0.0",
   "description": "",
-  "main": "bot.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node bot.js",
-	"build": "echo 'Nothing to build'"
+    "start": "node index.js",
+    "build": "echo 'Nothing to build'"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +14,7 @@
   "dependencies": {
     "dayjs": "^1.11.11",
     "dotenv": "^16.4.5",
+    "express": "^4.19.2",
     "mongoose": "^8.4.5",
     "node-cron": "^3.0.3",
     "node-telegram-bot-api": "^0.66.0",
