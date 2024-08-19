@@ -143,7 +143,7 @@ bot.onText(/\/start/, (msg) => {
 bot.on('message', async (msg) => {
 	const chatId = msg.chat.id;
 
-	if (msg.text && msg.text.includes('Тарифні плани')) {
+	if (msg.text && msg.text?.includes('Тарифні плани')) {
 		const userId = msg.from.id;
 
 		if (await hasActiveSubscription(userId)) {
@@ -165,7 +165,7 @@ bot.on('message', async (msg) => {
 			});
 		}
 		log(`Handled 'Тарифні плани' message from user ID: ${userId}`);
-	} else if (msg.text && msg.text.includes('Мій тариф')) {
+	} else if (msg.text && msg.text?.includes('Мій тариф')) {
 		const userId = msg.from.id;
 
 		try {
@@ -183,10 +183,10 @@ bot.on('message', async (msg) => {
 			bot.sendMessage(chatId, 'Виникла помилка під час отримання данних про вашу підписку, спробуйте пізніше або звертайтесь до нашої підтримки: <a href="https://t.me/serhiy_dvoryannikov">підтримка</a>.', { parse_mode: 'HTML' });
 		}
 		log(`Handled 'Мій тариф' message from user ID: ${userId}`);
-	} else if (msg.text && msg.text.includes('Підтримка')) {
+	} else if (msg.text && msg.text?.includes('Підтримка')) {
 		bot.sendMessage(chatId, `Якщо у вас виникла помилка з ботом, будь ласка, напишіть нашій підтримці: <a href="https://t.me/${supportUsername}">@${supportUsername}</a>`, { parse_mode: 'HTML' });
 		log(`Handled 'Support' message from user ID: ${msg.from.id}`);
-	} else if (msg.reply_to_message && (msg.reply_to_message.text.includes('Будь-ласка надішліть скріншот з оплатою у відповідь на це повідомлення.') || msg.reply_to_message.text.includes('Ваша оплата була відхилена, будь-ласка надішліть інший скріншот оплати.'))) {
+	} else if (msg.reply_to_message && (msg.reply_to_message.text?.includes('Будь-ласка надішліть скріншот з оплатою у відповідь на це повідомлення.') || msg.reply_to_message.text?.includes('Ваша оплата була відхилена, будь-ласка надішліть інший скріншот оплати.'))) {
 		// Check if the message is a reply to the payment request message
 		if (msg.photo) {
 			// Forward the photo to the group
